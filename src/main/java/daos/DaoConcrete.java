@@ -78,10 +78,35 @@ public class DaoConcrete implements DaoInterface {
     }
 
     public Object create(Object dto) {
+        try {
+            Cars createCar = new Cars();
+            Statement stmt = connection.createStatement();
+            String sql;
+            sql = String.format("INSERT INTO BoardGames (MAKE, MODEL, YEAR, COLOR,  VIN) VALUES ('%s','%s',%d, '%s','%s');",createCar.getMake(),createCar.getModel(),createCar.getYear(),createCar.getColor(), createCar.getVin());
+
+            stmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                return findById(rs.getInt(1));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     public void delete(int id) {
+        try {
+            Statement stmt = connection.createStatement();
+            String sql;
+            sql = String.format("DELETE FROM BoardGames WHERE id=%d",id);
+
+            stmt.executeUpdate(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
