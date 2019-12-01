@@ -8,8 +8,8 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 
         public static final String URL = "jdbc:mysql://localhost:3306/cars";
-        public static final String USER = "testuser";
-        public static final String PASS = "testpass";
+        public static final String USER = "kendra";
+        public static final String PASS = "zipcode78";
         /**
          * Get a connection to database
          * @return Connection object
