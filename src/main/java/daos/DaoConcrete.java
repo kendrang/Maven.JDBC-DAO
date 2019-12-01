@@ -82,7 +82,7 @@ public class DaoConcrete implements DaoInterface {
             Cars createCar = new Cars();
             Statement stmt = connection.createStatement();
             String sql;
-            sql = String.format("INSERT INTO BoardGames (MAKE, MODEL, YEAR, COLOR,  VIN) VALUES ('%s','%s',%d, '%s','%s');",createCar.getMake(),createCar.getModel(),createCar.getYear(),createCar.getColor(), createCar.getVin());
+            sql = String.format("INSERT INTO CARS (MAKE, MODEL, YEAR, COLOR,  VIN) VALUES ('%s','%s',%d, '%s','%s');",createCar.getMake(),createCar.getModel(),createCar.getYear(),createCar.getColor(), createCar.getVin());
 
             stmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
 
@@ -101,7 +101,7 @@ public class DaoConcrete implements DaoInterface {
         try {
             Statement stmt = connection.createStatement();
             String sql;
-            sql = String.format("DELETE FROM BoardGames WHERE id=%d",id);
+            sql = String.format("DELETE FROM CARS WHERE id=%d",id);
 
             stmt.executeUpdate(sql);
         } catch (Exception e) {
