@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DaoConcrete implements DaoInterface {
-    Connection connection = (Connection) ConnectionFactory.getConnection();
+    Connection connection = ConnectionFactory.getConnection();
 
     public Object findById(int id) {
 
 
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM user WHERE id=" + id);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM CARS WHERE id=" + id);
             if(rs.next())
             {
                 Cars car = new Cars();
